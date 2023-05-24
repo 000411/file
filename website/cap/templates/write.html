@@ -1,0 +1,40 @@
+<html>
+<head>
+<style>
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    
+    a:hover,
+    a:focus {
+      color: blue;
+      text-decoration: underline;
+    }
+</style>
+</head>
+    
+
+    
+<body>
+  <h2>한문장입력</h2>
+    <h3>문장을 입력해주세요</h3>
+  <form action="/result_write/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input name="sent" id="bsent" type="text"/>
+    <input type="submit" onclick="return check_sent();">
+    <script>
+    function check_sent(){
+        var sentCheck = document.getElementById("bsent").value;
+        if(!sentCheck){
+            alert("문장을 입력하세요.");
+            return false;
+        }
+    }
+    </script>
+  </form>
+  <a href="/">처음으로</a>
+</body>
+
+</html>
+

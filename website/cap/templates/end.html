@@ -1,0 +1,39 @@
+{%load static%}
+<html>
+<head>
+    <style>
+
+        button {
+          all: unset;
+          color: black;
+          text-decoration: none;
+          padding: 10px;
+        }
+      
+        button:hover,
+        button:focus {
+          color: blue;
+          text-decoration: underline;
+        }  
+    </style>
+</head>
+
+<body>
+    <h2>다음 문장이 없습니다. 컷만화를 생성하세요.</h2>
+    <form action="/cartoon/" method="POST">
+        <input type="hidden" name="i_value" value='{{ i }}' />
+        <input type="hidden" name="sent_0" value='{{ sent_0 }}' />
+        <input type="hidden" name="sent_1" value='{{ sent_1 }}' />
+        <input type="hidden" name="sent_2" value='{{ sent_2 }}' />
+        <input type="hidden" name="sent_3" value='{{ sent_3 }}' />
+        <input type="hidden" name="sent_4" value='{{ sent_4 }}' />
+        <input type="hidden" name="sent_5" value='{{ sent_5 }}' />
+        <input type="hidden" name="sent_6" value='{{ sent_6 }}' />
+        <input type="hidden" name="sent_7" value='{{ sent_7 }}' />
+        <input type="hidden" name="sent_8" value='{{ sent_8 }}' />
+        <input type="hidden" name="sent_9" value='{{ sent_9 }}' />
+        <button type="submit">컷만화생성</button>
+        {% csrf_token %}
+    </form>
+</body>
+</html>

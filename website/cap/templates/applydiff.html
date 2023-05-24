@@ -1,0 +1,175 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+
+        .results {
+          display: flex;
+        }
+        
+        .result-item-title {
+          text-align: center;
+        }
+      
+        .result-item-sent {
+          margin-top: 200px;
+          margin-bottom: 200px;
+          font-weight: bold;
+        }
+
+        .result-item-img {
+          padding: 15px;
+        }
+      
+        .result-item {
+          width: 500px;
+          height: 500px;
+          border: 1px solid black;
+          margin: 20px;
+          border-radius: 4px;
+          text-align: center;
+        }
+        
+        a {
+          color: black;
+          text-decoration: none;
+          padding: 10px;
+        }
+
+        a:hover,
+        a:focus {
+          color: blue;
+          text-decoration: underline;
+        }   
+
+        .items {
+          height: 70px;
+          border-bottom: 1px solid black;
+          display: flex;
+          align-items: center;
+        }
+
+        .left-items {
+          display: flex;
+          margin-left: auto;
+        }
+
+        .right-items {
+          display: flex;
+          margin-right: auto;
+        }
+      
+        .main {
+          width: 1200px;
+          margin: 0 auto;
+          margin-top: 60px;
+        }     
+      
+        .title {
+          text-align: center;
+          font-size: 3.5rem;
+          font-weight: bold;
+        }
+    
+        .subtitle {
+          text-align: center;
+          font-size: 1.25rem;
+          font-weight: 300;
+        }   
+      
+        img {
+          width: 450px;
+          height: 450px;
+          object-fit: cover;
+        }
+
+        button {
+          all: unset;
+          color: black;
+          text-decoration: none;
+          padding: 10px;
+        }
+      
+        button:hover,
+        button:focus {
+          color: blue;
+          text-decoration: underline;
+        }  
+    </style>
+    
+    <meta charset="UTF-8">
+    <meta name="view port" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+
+    
+</head>
+<body>  
+    <div class="items">     
+       <div class=right-items>
+         <a href="/">처음으로</a>
+       </div>
+       <div class="left-items">
+         <form action="/cartoon/" method="POST">
+            <input type="hidden" name="i_value" value='{{ i }}' />
+            <input type="hidden" name="sent_0" value='{{ sent_0 }}' />
+            <input type="hidden" name="sent_1" value='{{ sent_1 }}' />
+            <input type="hidden" name="sent_2" value='{{ sent_2 }}' />
+            <input type="hidden" name="sent_3" value='{{ sent_3 }}' />
+            <input type="hidden" name="sent_4" value='{{ sent_4 }}' />
+            <input type="hidden" name="sent_5" value='{{ sent_5 }}' />
+            <input type="hidden" name="sent_6" value='{{ sent_6 }}' />
+            <input type="hidden" name="sent_7" value='{{ sent_7 }}' />
+            <input type="hidden" name="sent_8" value='{{ sent_8 }}' />
+            <input type="hidden" name="sent_9" value='{{ sent_9 }}' />
+            <button type="submit">컷만화생성</button>
+            {% csrf_token %}
+         </form>           
+         <form method="POST">
+            <input type="hidden" name="change_type" value="restart"/>
+            <button type="submit">다시시작</button>
+            {% csrf_token %}
+         </form>
+         <form method="POST">
+            <input type="hidden" name="change_type" value="save"/>
+            <input type="hidden" name="i_value" value='{{ i }}' />
+            <input type="hidden" name="sent_0" value='{{ sent_0 }}' />
+            <input type="hidden" name="sent_1" value='{{ sent_1 }}' />
+            <input type="hidden" name="sent_2" value='{{ sent_2 }}' />
+            <input type="hidden" name="sent_3" value='{{ sent_3 }}' />
+            <input type="hidden" name="sent_4" value='{{ sent_4 }}' />
+            <input type="hidden" name="sent_5" value='{{ sent_5 }}' />
+            <input type="hidden" name="sent_6" value='{{ sent_6 }}' />
+            <input type="hidden" name="sent_7" value='{{ sent_7 }}' />
+            <input type="hidden" name="sent_8" value='{{ sent_8 }}' />
+            <input type="hidden" name="sent_9" value='{{ sent_9 }}' />
+            <input type="hidden" name="sent" value='{{ sent }}' />
+            <button type="submit">저장 및 다음</button>
+            {% csrf_token %}
+         </form>
+       </div>
+    </div>
+    <div class="main">
+      <div class="title">동화삽화생성프로그램</div>
+      <div class="subtitle">동화의 핵심문장을 추출해 삽화를 생성합니다</div>
+      <div class="results">
+        <div class="result-item">
+          <div class="result-item-title">문장</div>
+          <div class="result-item-sent">
+<!--               {{ sent }}<br>{{ eng_sent }}<br> {{ prompt }}<br> -->
+              {{ sent }}
+           </div>  
+        </div>
+        <div class="result-item">
+          <div class="result-item-title">삽화</div>
+          <div class="result-item-img"><img src = "{%static 'cap/image_result.png'%}"></div>  
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+
+
+
