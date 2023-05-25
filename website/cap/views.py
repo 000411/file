@@ -871,7 +871,7 @@ def applydiff(request):
     print(sent)
     print(eng_sent)
     print(prompt)
-    Negative_prompt = "((NSFW)),strange face, lowres, (bad anatomy, bad hands:1.1), text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, jpeg artifacts, signature, watermark, username, blurry, artist name, b&w, weird colors, (cartoon, 3d, bad art, poorly drawn, close up, word, blurry:1.5), (disfigured, deformed, extra limbs:1.5)"
+    Negative_prompt = "((NSFW)),strange face, ((bad anatomy)), ((text)), extra digit, fewer digits, cropped, worst quality, jpeg artifacts, weird colors, bad art, poorly drawn, close up"
     image = pipe(prompt).images[0]
 #     image.show()    
     image.save('./cap/static/cap/image_result.png')
