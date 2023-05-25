@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <style>
-
+<style>
     a {
       color: black;
       text-decoration: none;
-      padding: 10px;
     }
     
     a:hover,
@@ -15,79 +12,28 @@
       color: blue;
       text-decoration: underline;
     }
-  
-    .items {
-      height: 70px;
-      border-bottom: 1px solid black;
-      display: flex;
-      align-items: center;
-    }
-
-    .right-items {
-      display: flex;
-      margin-right: auto;
-    }
-
-    .title {
-      text-align: center;
-      font-size: 3.5rem;
-      font-weight: bold;
-      margin-bottom: 50px;
-    }
-
-    .subtitle {
-      font-size: 1.25rem;
-      font-weight: bold;
-    }
-
-    .main {
-      width: 800px;
-      margin: 0 auto;
-      margin-top: 30px;
-    }
-  </style>
+</style>
+    
+<head>
 </head>
 
 <body>
-  <div class="items">
-    <div class="right-items"> 
-      <a href="/write">한문장입력</a>
-      <a href="/file">텍스트파일삽입</a>          
-    </div>
-  </div>
-  
-  <div class="main"> 
-    <div class="title">동화삽화생성프로그램</div> 
-    <div class="subtitle">사용방법</div>
-      <ol>
-        <li>삽화 생성할 대상 설정</li>
-        <ul>
-        <li>한문장입력: 한문장만 입력받습니다.</li>
-        <li>텍스트파일삽입: txt파일을 입력받습니다.</li>
-        </ul>
-        <li>핵심문장 10개 추출</li>
-        <ul>
-        <li>삽입된 txt파일에서 핵심문장 10개를 골라냅니다.</li>
-        <li>한문장입력의 경우 이 단계를 거치지 않습니다.</li>
-        </ul>
-        <li>삽화이미지 생성</li>
-        <ul>
-        <li>문장에 해당하는 삽화이미지를 생성합니다.</li>
-        </ul>
-        <li>부가기능</li>
-        <ul>
-        <li>컷만화생성: 지금까지 저장된 삽화를 컷만화 형식으로 보여줍니다.</li>
-        <li>다시시작: 해당 문장에 대한 삽화를 다시 생성합니다.</li>
-        <li>저장 및 다음: 해당 그림을 컷만화에 저장시킨 후 다음 문장에 대한 삽화를 생성합니다. </li>
-        </ul>        
-      </ol>    
-      <div class="subtitle">주의사항</div>
-        <ul>
-        <li>삽화 생성을 위해 그래픽카드(GPU)가 필요합니다.</li>
-        <li>삽화 생성까지 충분히 기다려주세요!</li>
-        </ul>
-  </div>
-    
+  <h2>텍스트파일삽입</h2>
+  <form action="/applyfile/" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+    <input name="file" type="file" id="bfile" accept=".txt"/>
+    <input type="submit" onclick="return check_file();">
+    <script>
+    function check_file(){
+        var fileCheck = document.getElementById("bfile").value;
+        if(!fileCheck){
+            alert("파일을 첨부해 주세요");
+            return false;
+        }
+    }
+    </script>
+  </form>
+  <a href="/">처음으로</a>
 </body>
 
 </html>
