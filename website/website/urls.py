@@ -23,7 +23,6 @@ from django.conf.urls import  include, url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main),
-    path('index/', views.index),
     path('file/', views.file),
     path('write/', views.write),
     path('applyfile/', views.applyfile),
