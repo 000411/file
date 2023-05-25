@@ -28,7 +28,7 @@ def main(request):
 
 @application.route("/capstone/write")
 def write(request):
-    return render(request, 'write.html')
+    return render(request, '/capstone/write.html')
 
 @application.route("/file")
 def file(request):
