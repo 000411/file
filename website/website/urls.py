@@ -23,8 +23,8 @@ from django.conf.urls import  include, url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main),
-    path('/capstone/file/', views.file),
-    path('/capstone/write/', views.write),
+    path('file/', views.file),
+    path('write/', views.write),
     path('applyfile/', views.applyfile),
     path('applydiff/', views.applydiff),
     path('cartoon/', views.cartoon),
