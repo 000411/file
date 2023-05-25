@@ -26,7 +26,7 @@ application = Flask(__name__)
 def main(request):
     return render(request, 'main.html')
 
-@application.route("/write")
+@application.route("/capstone/write")
 def write(request):
     return render(request, 'write.html')
 
