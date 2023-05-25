@@ -22,10 +22,6 @@ from cap.models import ImageModel
 
 application = Flask(__name__)
 
-@application.route("/index")
-def index(request):
-    return render(request, 'index.html')
-
 @application.route("/")
 def main(request):
     return render(request, 'main.html')
